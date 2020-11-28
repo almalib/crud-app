@@ -38,6 +38,22 @@
       <div class="input-item">
         <label>
           <div class="input-title">
+            Email
+          </div>
+        </label>
+        <input required email #email="ngModel" type="email" placeholder="Email"
+               [ngModel]="member.email" name="email"
+        >
+        <div class="prompt" *ngIf="email.value.length === 0">
+          *Required field
+        </div>
+        <div class="prompt error" *ngIf="email.touched && email.invalid">
+          *Invalid email
+        </div>
+      </div>
+      <div class="input-item">
+        <label>
+          <div class="input-title">
             Age
           </div>
         </label>
@@ -46,7 +62,8 @@
         >
 
       </div>
-      <button class="btn" type="submit">Создать</button>
+      <button class="btn" type="submit" *ngIf="!overlayRef.item">Создать</button>
+      <button class="btn" type="submit" *ngIf="overlayRef.item">Изменить</button>
     </form>
   </div>
 </div>

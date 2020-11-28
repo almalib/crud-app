@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {CrudAppService} from '../crud-app.service';
 import {MembersInterface} from '../res/common.interface';
@@ -22,12 +22,19 @@ export class AddMemberModalComponent implements OnInit {
   /**
    *
    */
+  @ViewChild('buttonElement', {static: false})
+  buttonElement: ElementRef;
+
+  /**
+   *
+   */
   public member: MembersInterface = {
     age: 0,
     name: {
       first: '',
       last: '',
-    }
+    },
+    email: '',
   };
 
   constructor(private crudService: CrudAppService) { }
@@ -61,7 +68,8 @@ export class AddMemberModalComponent implements OnInit {
           name: {
             first: form.value.first,
             last: form.value.last,
-          }
+          },
+          email: form.value.email,
         };
 
         if (this.overlayRef.item === null) {

@@ -6,11 +6,11 @@ import {CrudAppService} from '../crud-app.service';
 import {MembersInterface} from '../res/common.interface';
 
 @Component({
-  selector: 'app-list-of-employees',
-  templateUrl: './list-of-employees.component.html',
-  styleUrls: ['./list-of-employees.component.scss']
+  selector: 'app-list-of-members',
+  templateUrl: './list-of-members.component.html',
+  styleUrls: ['./list-of-members.component.scss']
 })
-export class ListOfEmployeesComponent implements OnInit {
+export class ListOfMembersComponent implements OnInit {
 
   constructor(
     private overlay: Overlay,

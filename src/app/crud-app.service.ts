@@ -52,6 +52,7 @@ export class CrudAppService {
     });
     changeMember.name.first = oldMember.name.first;
     changeMember.name.last = oldMember.name.last;
+    changeMember.email = oldMember.email;
     changeMember.age = oldMember.age;
   }
 }

@@ -1,0 +1,34 @@
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th class="item table-header short-item">#</th>
+        <th class="item table-header short-item">Avatar</th>
+        <th class="item table-header">First Name</th>
+        <th class="item table-header">Last Name</th>
+        <th class="item table-header short-item">Age</th>
+        <th class="item table-header member-email">Email</th>
+        <th class="item table-header short-item">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of getMemberList(); let id = index">
+        <td class="short-item item">{{id+1}}</td>
+        <td class="short-item item">
+          <div class="avatar">
+            <img src="https://i.pravatar.cc/50" alt="avatar">
+          </div>
+        </td>
+        <td class="item">{{item.name.first}}</td>
+        <td class="item">{{item.name.last}}</td>
+        <td class="item short-item">{{item.age}}</td>
+        <td class="item member-email">{{item.name.first[0]}}.{{item.name.last[0]}} - {{item.email}}</td>
+        <td class="item short-item">
+          <a (click)="addMemberModal(item)">Edit</a>
+          <a (click)="deleteMember(item)">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+  </table>
+  <button (click)="addMemberModal(null)">Создать</button>
+</div>
