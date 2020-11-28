@@ -1,0 +1,47 @@
+.add-member-modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0,0,0,.5);
+  .modal-window {
+    background-color: #ffffff;
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+  }
+  .btn {
+    padding: 10px 15px;
+    background-color: #fff;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .input-item {
+    margin-bottom: 20px;
+    input {
+      height: 35px;
+      padding-left: 10px;
+      border: 1px solid #CCCCCC;
+      border-radius: 5px;
+      width: 200px;
+      &.ng-invalid {
+        border-color: red;
+      }
+      &.ng-untouched {
+        border-color: #CCCCCC;
+      }
+    }
+  }
+  .input-title {
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+}
+
+
