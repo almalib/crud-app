@@ -37,6 +37,12 @@
         border-color: #CCCCCC;
       }
     }
+    .prompt {
+      font-size: 10px;
+      &.error {
+        color: red;
+      }
+    }
   }
   .input-title {
     font-weight: 500;

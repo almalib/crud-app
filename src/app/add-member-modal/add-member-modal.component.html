@@ -1,7 +1,7 @@
 <div #backdropElement class="add-member-modal-wrapper"
      (click)="closeAddMemberModal($event, backdropElement)"
 >
-  <div class="modal-window">
+  <div class="modal-window" #formElement>
     <form (ngSubmit)="onSubmit(form)" #form="ngForm" novalidate>
       <div class="input-item">
         <label>
@@ -9,9 +9,15 @@
             First name
           </div>
         </label>
-        <input required pattern="[a-zA-Z ]*" #firstName="ngModel" type="text" placeholder="First name"
+        <input required pattern="^[а-яА-ЯёЁa-zA-Z]+$" #firstName="ngModel" type="text" placeholder="First name"
                [ngModel]="member.name.first" name="first"
         >
+        <div class="prompt" *ngIf="firstName.value.length === 0">
+          *Required field
+        </div>
+        <div class="prompt error" *ngIf="firstName.touched && firstName.invalid">
+          *Invalid surname
+        </div>
       </div>
       <div class="input-item">
         <label>
@@ -19,9 +25,15 @@
             Last name
           </div>
         </label>
-        <input required pattern="[a-zA-Z ]*" #lastName="ngModel" type="text" placeholder="Last name"
+        <input required pattern="^[а-яА-ЯёЁa-zA-Z]+$" #lastName="ngModel" type="text" placeholder="Last name"
                [ngModel]="member.name.last" name="last"
         >
+        <div class="prompt" *ngIf="lastName.value.length === 0">
+          *Required field
+        </div>
+        <div class="prompt error" *ngIf="lastName.touched && lastName.invalid">
+          *Invalid surname
+        </div>
       </div>
       <div class="input-item">
         <label>
@@ -29,9 +41,10 @@
             Age
           </div>
         </label>
-        <input required type="number" #age="ngModel" placeholder="0" pattern="^[0-9]+$"
+        <input required type="number" #age="ngModel" placeholder="0" min="1" pattern="^[0-9]+$"
                [ngModel]="member.age" name="age"
         >
+
       </div>
       <button class="btn" type="submit">Создать</button>
     </form>
